@@ -1,5 +1,6 @@
 package com.company;
 
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 
 public class Main {
@@ -18,7 +19,14 @@ public class Main {
         calculateAndPrintDeliveryDays(deliveyDistance);
         System.out.println();
 
+        findDuplicates("abccddefgghiijjkk");
+        System.out.println();
+
+        int[] arr = new int[]{3, 2, 1, 6, 5};
+        reverseArray(arr);
+        System.out.println();
     }
+
 
     // HomeWork1
     public static void printIsLeapYear(int year) {
@@ -71,6 +79,31 @@ public class Main {
             result++;
         }
         System.out.print("Количество дней доставки " + result);
+    }
+
+
+    // Homework 4
+    public static void findDuplicates(String duplicate) {
+        char[] letters = duplicate.toCharArray();
+        for (int i = 1; i < letters.length; i++) {
+            if (letters[i] == letters[i - 1]) {
+                System.out.println("Found Duplicate " + letters[i]);
+                return;
+            }
+        }
+    }
+
+    // Homework5
+    public static void reverseArray(int[] arr) {
+        int[] intArray = new int[]{3, 2, 1, 6, 5};
+        for (int i = 0; i < intArray.length / 2; i++) {
+            int temp = intArray[i];
+            intArray[i] = intArray[intArray.length - 1 - i];
+            intArray[intArray.length - 1 - i] = temp;
+        }
+        for (int i = 0; i < intArray.length; i++) {
+            System.out.print(intArray[i] + " ");
+        }
     }
 }
 
